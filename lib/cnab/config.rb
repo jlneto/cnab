@@ -4,9 +4,13 @@ class Config
       @definition = YAML.load_file("#{Cnab.config_path}/#{version}/#{file}.yml")
     end
 
+    def fields
+      @definition
+    end
+
     def method_missing(method_name)
       range = @definition[method_name.to_s].split('..')
-      Integer(range[0])..Integer(range[1])
+      (range[0].to_i)..(range[1].to_i)
     end
 
     def respond_to_missing?(method_name, include_private = false)

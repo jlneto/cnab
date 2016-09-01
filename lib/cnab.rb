@@ -19,7 +19,7 @@ module Cnab
     raise Exceptions::NoFileGiven if file.nil?
 
     file_type = detect_cnab_type(file)
-    if file_type == 240
+    if file_type < 245
       parse_240(file, version, merge)
     else
       parse_400(file, version, merge )
@@ -30,7 +30,7 @@ module Cnab
     file_type = nil
     File.open(file, 'rb') do |f|
       first_line = f.gets
-      if first_line.size == 240
+      if first_line.size < 245
         file_type = 240
       else
         file_type = 400

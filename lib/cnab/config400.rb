@@ -4,10 +4,14 @@ class Config400
       @definition = YAML.load_file("#{Cnab.config_path}/#{version}/#{file}.yml")
     end
 
+    def fields
+      @definition
+    end
+
     def method_missing(method_name)
       range = @definition[method_name.to_s].split('|')
-      p1 = Integer(range[1].strip) - 1
-      p2 = Integer(range[2].strip) - 1
+      p1 = range[1].strip.to_i - 1
+      p2 = range[2].strip.to_i - 1
       p1..p2
     end
 
