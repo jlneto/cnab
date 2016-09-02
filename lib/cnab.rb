@@ -15,11 +15,23 @@ module Cnab
 
   autoload :Exceptions, 'cnab/exceptions'
 
-  def self.parse(file = nil, merge = false, version = 'itau_400')
+  def self.parse(file = nil, merge = false, version = nil)
     raise Exceptions::NoFileGiven if file.nil?
 
-    file_type = detect_cnab_type(file)
-    if file_type < 245
+    unless version
+      cnab_type = detect_cnab_type(file)
+      if cnab_type[2] == 'ITAU'
+        if cnab_type[1] == 'REM' and cnab_type[2] == 'ITAU'
+          version = 'itau_400'
+        else
+          version = 'itau_400_retorno'
+        end
+      else
+        version = '08.7'
+      end
+    end
+
+    if cnab_type[0] < 245
       parse_240(file, version, merge)
     else
       parse_400(file, version, merge )
@@ -27,16 +39,22 @@ module Cnab
   end
 
   def self.detect_cnab_type(file)
-    file_type = nil
+    size = 400
+    tipo = 'REM'
+    banco = 'CNAB'
     File.open(file, 'rb') do |f|
       first_line = f.gets
       if first_line.size < 245
-        file_type = 240
-      else
-        file_type = 400
+        size = 240
+      end
+      if first_line.include?( 'RETORNO' )
+        tipo = 'RET'
+      end
+      if first_line.include?( 'ITAU' )
+        banco = 'ITAU'
       end
     end
-    file_type
+    [size, tipo, banco]
   end
 
   def self.parse_240(file, version, merge = false)
