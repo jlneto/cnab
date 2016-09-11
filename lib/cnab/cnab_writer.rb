@@ -37,8 +37,8 @@ module Cnab
         range = value.split('|')
         p1 = range[1].strip.to_i - 1
         p2 = range[2].strip.to_i - 1
-        hash_value = line_hash[key].to_s
-        s[p1..p2] = hash_value.rjust(p2-p1+1)
+        hash_value = line_hash[key].to_s.ljust(p2-p1+1)
+        s[p1..p2] = hash_value
       end
       s
     end
