@@ -12,6 +12,7 @@ module Cnab
   autoload :Configs400, 'cnab/configs400'
   autoload :Detalhe400, 'cnab/detalhe400'
   autoload :PrettyInspect, 'cnab/pretty_inspect'
+  autoload :CnabWriter, 'cnab/cnab_writer'
 
   autoload :Exceptions, 'cnab/exceptions'
 
