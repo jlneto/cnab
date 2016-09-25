@@ -90,7 +90,6 @@ describe Cnab do
         Cnab.parse('spec/cnab.txt', true, '08.7').detalhes[0].to_hash['lote'].should == '3456'
       end
 
-
     end
   end
 end

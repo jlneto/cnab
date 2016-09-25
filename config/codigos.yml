@@ -11,7 +11,7 @@ ocorrencias_de_remessa:
   11: Protestar para fins falimentares
   18: Sustar Protesto
 
-ocorrencis as Retorno:
+ocorrencias_de_retorno:
   02: ENTRADA CONFIRMADA COM POSSIBILIDADE DE MENSAGEM (NOTA 20 – TABELA 10)
   03: ENTRADA REJEITADA (NOTA 20 – TABELA 1)
   04: ALTERAÇÃO DE DADOS – NOVA ENTRADA OU ALTERAÇÃO/EXCLUSÃO DE DADOS ACATADA
@@ -71,7 +71,7 @@ ocorrencis as Retorno:
   63: TÍTULO SUSTADO JUDICIALMENTE
 
 
-Instrucoes de Cobranca:
+instrucoes_de_cobranca:
   02: Devolver após 05 dias do vencimento
   03: Devolver após 30 dias do vencimento
   05: Receber conforme instruções no próprio titulo
