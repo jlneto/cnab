@@ -38,6 +38,7 @@ module Cnab
         p1 = range[1].strip.to_i - 1
         p2 = range[2].strip.to_i - 1
         hash_value = line_hash[key].to_s.ljust(p2-p1+1)
+        hash_value = hash_value[0..(p2-p1)]
         s[p1..p2] = hash_value
       end
       s
