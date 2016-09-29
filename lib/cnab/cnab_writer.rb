@@ -14,7 +14,7 @@ module Cnab
     end
 
     def to_file
-      @lines.join("\n")
+      @lines.join("\n") + "\n"
     end
 
     def definition(tipo_de_registro)

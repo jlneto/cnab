@@ -21,8 +21,8 @@ module Cnab
 
     unless version
       cnab_type = detect_cnab_type(file)
-      if cnab_type[2] == 'ITAU'
-        if cnab_type[1] == 'REM' and cnab_type[2] == 'ITAU'
+      if cnab_type[0] == 400
+        if cnab_type[1] == 'REM'
           version = 'itau_400'
         else
           version = 'itau_400_retorno'
