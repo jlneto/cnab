@@ -72,15 +72,15 @@ ocorrencias_de_retorno:
 
 
 instrucoes_de_cobranca:
-  02: Devolver após 05 dias do vencimento
-  03: Devolver após 30 dias do vencimento
+  09: Protestar
+  10: Não Protestar
   05: Receber conforme instruções no próprio titulo
+  02: Devolver após 05 dias do vencimento
   06: Devolver após 10 dias do vencimento
   07: Devolver após 15 dias do vencimento
   08: Devolver após 20 dias do vencimento
-  09: Protestar
-  10: Não Protestar
   11: Devolver após 25 dias do vencimento
+  03: Devolver após 30 dias do vencimento
   12: Devolver após 35 dias do vencimento
   13: Devolver após 40 dias do vencimento
   14: Devolver após 45 dias do vencimento
